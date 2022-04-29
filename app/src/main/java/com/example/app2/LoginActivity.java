@@ -24,7 +24,6 @@ public class LoginActivity extends Activity {
         Button login = findViewById(R.id.Login);
         Button re = findViewById(R.id.re);
         CheckBox remember = findViewById(R.id.remember);
-
         sp =this.getSharedPreferences("userinfo",Context.MODE_PRIVATE);
         if (sp.getBoolean("checkboxBoolean",false)){
             user.setText(sp.getString("user",null));
@@ -56,17 +55,11 @@ public class LoginActivity extends Activity {
                     editor.putBoolean("checkboxBoolean",false);
                 }
                 editor.commit();
-                
                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 intent.putExtra("name",user.getText().toString());
                 startActivity(intent);
                 finish();
-
             }
-
-
         });
-
     }
-
 }

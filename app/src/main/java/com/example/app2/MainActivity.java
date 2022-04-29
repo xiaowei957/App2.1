@@ -21,12 +21,8 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //        拿到数据
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
-
-//        数据存放
         int[] num = new int[]{1,2,3,4,5};
         String[] names = new String[]{name,name,name,name,name};
         List<Map<String,Object>> item = new ArrayList<>();
@@ -44,8 +40,6 @@ public class MainActivity extends ListActivity {
                 new int[]{R.id.item_num, R.id.item_user});
         this.setListAdapter(ad);
     }
-
-    //        点击事件
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
@@ -55,7 +49,12 @@ public class MainActivity extends ListActivity {
             startActivity(intent);
         }
         Toast.makeText(this,"您选择了第"+ index +"项",Toast.LENGTH_SHORT).show();
-
-
+        if (index == 2){
+            Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("name", "zhaojiaqi");
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
     }
 }

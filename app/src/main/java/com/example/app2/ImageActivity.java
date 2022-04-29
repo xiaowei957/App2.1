@@ -26,33 +26,24 @@ public class ImageActivity extends Activity {
     private ProgressBar progressBar;
     private GridView gridView;
     private SimpleAdapter simpleAdapter;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-
         setContentView(R.layout.image);
-
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,R.layout.title);
         progressBar = findViewById(R.id.bartest);
         gridView = findViewById(R.id.gridview);
-
         new MyTack().execute();
-
         gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(ImageActivity.this, "第"+position, Toast.LENGTH_SHORT).show();
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(ImageActivity.this);
                 builder.setTitle("是否删除？");
                 builder.setMessage("是否真的要删除吗？");
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                     }
                 });
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -63,7 +54,6 @@ public class ImageActivity extends Activity {
                     }
                 });
                 builder.create().show();
-
                 return true;
             }
         });
@@ -74,15 +64,12 @@ public class ImageActivity extends Activity {
             for (int i = 0; i < image.length; i++) {
                 HashMap<String, Object> map = new HashMap<>();
                 map.put("imageview",image[i]);
-
-
                 try {
                     list.add(map);
                     Thread.sleep(600);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
                 publishProgress(i);
             }
             simpleAdapter = new SimpleAdapter(ImageActivity.this,
@@ -102,7 +89,6 @@ public class ImageActivity extends Activity {
         protected void onPostExecute(SimpleAdapter result) {
             progressBar.setVisibility(View.GONE);
 //            setProgressBarVisibility(false);
-
             gridView.setAdapter(result);
 //            linearLayout.addView(result);
             super.onPostExecute(result);
