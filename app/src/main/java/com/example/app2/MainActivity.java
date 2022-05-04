@@ -76,5 +76,12 @@ public class MainActivity extends ListActivity {
             intent.setClass(MainActivity.this, WebListenerActivity.class);
             startActivity(intent);
         }
+        if (index == 4) {
+            Intent intent = new Intent();
+            intent.putExtra("username", name);
+            intent.setClass(MainActivity.this, StyleActivity.class);
+            startActivity(intent);
+        }
+
     }
 }
