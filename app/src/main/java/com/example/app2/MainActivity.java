@@ -82,6 +82,10 @@ public class MainActivity extends ListActivity {
             intent.setClass(MainActivity.this, StyleActivity.class);
             startActivity(intent);
         }
+        if (index == 5) {
+            Intent intent = new Intent(MainActivity.this, BillActivity.class);
+            startActivity(intent);
+        }
 
     }
 }
