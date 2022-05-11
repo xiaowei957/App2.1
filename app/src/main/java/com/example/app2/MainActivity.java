@@ -28,8 +28,8 @@ public class MainActivity extends ListActivity {
         name = intent.getStringExtra("name");
         pwd = intent.getStringExtra("pwd");
         String name = intent.getStringExtra("name");
-        int[] num = new int[]{1, 2, 3, 4, 5,6};
-        String[] names = new String[]{name, name, name, name, name,name};
+        int[] num = new int[]{1, 2, 3, 4, 5,6,7,8};
+        String[] names = new String[]{name, name, name, name, name,name,name,name};
         List<Map<String, Object>> item = new ArrayList<>();
         for (int i = 0; i < names.length; i++) {
             HashMap<String, Object> map = new HashMap<>();
@@ -88,6 +88,12 @@ public class MainActivity extends ListActivity {
         }
         if (index == 6){
             startActivity(new Intent().setClass(MainActivity.this,MusicActivity.class));
+        }
+        if (index == 7){
+            startActivity(new Intent().setClass(MainActivity.this,MusicSerActivity.class));
+        }
+        if (index == 8){
+            startActivity(new Intent().setClass(MainActivity.this,MusicSerActivity.class));
         }
 
     }
