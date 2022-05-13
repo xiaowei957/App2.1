@@ -93,7 +93,7 @@ public class MainActivity extends ListActivity {
             startActivity(new Intent().setClass(MainActivity.this,MusicSerActivity.class));
         }
         if (index == 8){
-            startActivity(new Intent().setClass(MainActivity.this,MusicSerActivity.class));
+            startActivity(new Intent().setClass(MainActivity.this,ListenerActivity.class));
         }
 
     }
